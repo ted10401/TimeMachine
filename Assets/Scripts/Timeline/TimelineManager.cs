@@ -26,6 +26,8 @@ public class TimelineManager
             {
                 float deltaTime = value - _time;
 
+                GrayScaleImageEffect.Instance.ReverseTime = deltaTime < 0;
+
                 if (deltaTime < 0)
                 {
                     while(_reverseActions.Count > 0 && _reverseActions.Peek().m_time >= _time + deltaTime)
