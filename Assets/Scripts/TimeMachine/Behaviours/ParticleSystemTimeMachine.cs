@@ -10,7 +10,7 @@ public class ParticleSystemTimeMachine : BaseTimeMachine
     public override void Initialize()
     {
         _particleSystem = GetComponent<ParticleSystem>();
-        _particleSystem.randomSeed = 1;
+        _particleSystem.randomSeed = (uint)(new System.Random().Next());
     }
 
 

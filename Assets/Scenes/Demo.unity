@@ -512,7 +512,6 @@ GameObject:
   - component: {fileID: 873456876}
   - component: {fileID: 873456875}
   - component: {fileID: 873456874}
-  - component: {fileID: 873456879}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -588,20 +587,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &873456879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 873456873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cae46b25b7da8485b83c4c8d246a81c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shader: {fileID: 4800000, guid: 7f17c6883019b4fc5af685ea7de0952b, type: 3}
-  _saturation: 1
-  _speedRatio: 2
 --- !u!1 &978795004
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,9 +769,9 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1486013321}
   serializedVersion: 5
-  lengthInSec: 5
+  lengthInSec: 999
   speed: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   autoRandomSeed: 1
@@ -837,7 +822,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 5
+      scalar: 999
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3535,9 +3520,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee4f33b578f49f9a6f73ba851c92e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedRatio: 10
+  _speedRatio: 5
   _nowTime: 0
-  _setZero: 0
+  _reset: 0
+  _rewindEffect: 1
+  _auto: 0
+  _maxTime: 20
 --- !u!4 &1773045135
 Transform:
   m_ObjectHideFlags: 0

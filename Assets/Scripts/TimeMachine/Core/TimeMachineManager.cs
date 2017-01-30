@@ -26,7 +26,10 @@ public class TimeMachineManager
             {
                 float deltaTime = value - _time;
 
-//                GrayScaleImageEffect.Instance.ReverseTime = deltaTime < 0;
+                if(RewindEffect)
+                {
+                    GrayScaleImageEffect.Instance.ReverseTime = deltaTime < 0;
+                }
 
                 if (deltaTime < 0)
                 {
@@ -36,7 +39,6 @@ public class TimeMachineManager
                         UpdateTime(curDeltaTime);
 
                         _RewindActions.Pop().m_action();
-
                         deltaTime -= curDeltaTime;
                     }
                 }
@@ -48,6 +50,13 @@ public class TimeMachineManager
         }
     }
     private float _time;
+
+    public bool RewindEffect
+    {
+        get { return _rewindEffect; }
+        set { _rewindEffect = value; }
+    }
+    private bool _rewindEffect = false;
 
     private List<ITimeMachine> _timeMachineList;
     private Stack<RewindAction> _RewindActions;

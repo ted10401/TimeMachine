@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseImageEffect : MonoBehaviour
 {
-    [SerializeField] private Shader _shader;
+    protected string _shaderName;
     protected Material _material;
 
     public virtual void Awake ()
@@ -15,7 +15,7 @@ public class BaseImageEffect : MonoBehaviour
 
     private void CreateMaterial()
     {
-        _material = new Material(_shader);
+        _material = new Material(Shader.Find(_shaderName));
 
         InitPropertyIDs();
     }

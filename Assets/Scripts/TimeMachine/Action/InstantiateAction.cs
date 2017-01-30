@@ -8,7 +8,7 @@ public class InstantiateAction : BaseAction
 
     private List<GameObject> _instances;
 
-    private void Awake()
+    public override void Initialize()
     {
         _instances = new List<GameObject>();
     }

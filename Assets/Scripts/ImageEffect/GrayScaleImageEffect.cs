@@ -6,24 +6,30 @@ public class GrayScaleImageEffect : BaseImageEffect
 {
     public static GrayScaleImageEffect Instance
     {
-        get { return _instance; }
+        get
+        {
+            if (null == _instance)
+            {
+                _instance = Camera.main.gameObject.AddComponent<GrayScaleImageEffect>();
+            }
+
+            return _instance;
+        }
     }
     private static GrayScaleImageEffect _instance;
 
     public bool ReverseTime { set { _reverseTime = value; } }
 
-    [Range(0f, 1f)]
-    [SerializeField] private float _saturation = 1.0f;
-    [SerializeField] private float _speedRatio = 2.0f;
-
     private string _saturationPropertyName = "_saturation";
     private int _saturationID;
+
     private bool _reverseTime = false;
+    private float _saturation = 1.0f;
+    private float _speedRatio = 2.0f;
 
     public override void Awake()
     {
-        _instance = this;
-
+        _shaderName = "Hidden/GrayScaleImageEffectShader";
         base.Awake();
     }
 
