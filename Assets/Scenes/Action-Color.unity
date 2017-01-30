@@ -748,9 +748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae46b25b7da8485b83c4c8d246a81c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shader: {fileID: 4800000, guid: 7f17c6883019b4fc5af685ea7de0952b, type: 3}
-  _saturation: 1
-  _speedRatio: 2
 --- !u!1 &1370775049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,6 +1195,7 @@ MonoBehaviour:
   _rewindEffect: 0
   _auto: 0
   _maxTime: 20
+  _rewindMultiplier: 1
 --- !u!4 &1773045135
 Transform:
   m_ObjectHideFlags: 0

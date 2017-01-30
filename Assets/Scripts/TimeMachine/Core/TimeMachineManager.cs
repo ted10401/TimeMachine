@@ -28,17 +28,17 @@ public class TimeMachineManager
 
                 if(RewindEffect)
                 {
-                    GrayScaleImageEffect.Instance.ReverseTime = deltaTime < 0;
+                    GrayScaleImageEffect.Instance.IsRewindTime = deltaTime < 0;
                 }
 
                 if (deltaTime < 0)
                 {
-                    while(_RewindActions.Count > 0 && _RewindActions.Peek().m_time >= _time + deltaTime)
+                    while(_rewindActions.Count > 0 && _rewindActions.Peek().m_time >= _time + deltaTime)
                     {
-                        float curDeltaTime = _RewindActions.Peek().m_time - _time;
+                        float curDeltaTime = _rewindActions.Peek().m_time - _time;
                         UpdateTime(curDeltaTime);
 
-                        _RewindActions.Pop().m_action();
+                        _rewindActions.Pop().m_action();
                         deltaTime -= curDeltaTime;
                     }
                 }
@@ -59,13 +59,13 @@ public class TimeMachineManager
     private bool _rewindEffect = false;
 
     private List<ITimeMachine> _timeMachineList;
-    private Stack<RewindAction> _RewindActions;
+    private Stack<RewindAction> _rewindActions;
 
 
     public TimeMachineManager()
     {
         _timeMachineList = new List<ITimeMachine>();
-        _RewindActions = new Stack<RewindAction>();
+        _rewindActions = new Stack<RewindAction>();
     }
 
 
@@ -75,7 +75,7 @@ public class TimeMachineManager
     }
 
 
-    public void UnregistertimeMachine(ITimeMachine timeMachine)
+    public void UnregisterTimeMachine(ITimeMachine timeMachine)
     {
         _timeMachineList.Remove(timeMachine);
     }
@@ -83,7 +83,7 @@ public class TimeMachineManager
 
     public void AddRewindAction(Action action)
     {
-        _RewindActions.Push(new RewindAction(Time, action));
+        _rewindActions.Push(new RewindAction(Time, action));
     }
 
 

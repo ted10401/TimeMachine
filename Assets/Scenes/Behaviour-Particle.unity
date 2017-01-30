@@ -121,9 +121,10 @@ MonoBehaviour:
   _speedRatio: 5
   _nowTime: 0
   _reset: 0
-  _rewindEffect: 1
+  _rewindEffect: 0
   _auto: 0
   _maxTime: 20
+  _rewindMultiplier: 1
 --- !u!4 &108850557
 Transform:
   m_ObjectHideFlags: 0

@@ -124,6 +124,7 @@ MonoBehaviour:
   _rewindEffect: 0
   _auto: 0
   _maxTime: 20
+  _rewindMultiplier: 1
 --- !u!4 &108850557
 Transform:
   m_ObjectHideFlags: 0

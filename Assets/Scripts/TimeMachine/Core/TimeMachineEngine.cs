@@ -13,6 +13,7 @@ public class TimeMachineEngine : MonoBehaviour
     [Header("Auto Testing")]
     [SerializeField] private bool _auto = false;
     [SerializeField] private float _maxTime = 15f;
+    [SerializeField] private float _rewindMultiplier = 2.0f;
 
     private bool _addTime = true;
 
@@ -31,12 +32,13 @@ public class TimeMachineEngine : MonoBehaviour
             }
             else
             {
-                _nowTime -= Time.deltaTime * _speedRatio;
+                _nowTime -= Time.deltaTime * _speedRatio * _rewindMultiplier;
 
                 if (_nowTime <= 0)
                 {
                     _nowTime = 0;
                     _auto = false;
+                    _addTime = true;
                 }
             }
         }
@@ -51,6 +53,11 @@ public class TimeMachineEngine : MonoBehaviour
             if(Input.GetKey(KeyCode.D))
             {
                 _nowTime += Time.deltaTime * _speedRatio;
+            }
+
+            if(Input.GetKey(KeyCode.Space))
+            {
+                _auto = true;
             }
             #endif
         }

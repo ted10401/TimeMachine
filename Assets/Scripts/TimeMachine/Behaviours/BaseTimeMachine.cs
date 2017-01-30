@@ -12,7 +12,7 @@ public abstract class BaseTimeMachine : MonoBehaviour, ITimeMachine
 
     private void OnDestroy()
     {
-        TimeMachineManager.Instance.UnregistertimeMachine(this);
+        TimeMachineManager.Instance.UnregisterTimeMachine(this);
     }
 
 

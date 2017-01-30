@@ -18,14 +18,14 @@ public class GrayScaleImageEffect : BaseImageEffect
     }
     private static GrayScaleImageEffect _instance;
 
-    public bool ReverseTime { set { _reverseTime = value; } }
+    public bool IsRewindTime { set { _isRewindTime = value; } }
 
     private string _saturationPropertyName = "_saturation";
     private int _saturationID;
 
-    private bool _reverseTime = false;
-    private float _saturation = 1.0f;
-    private float _speedRatio = 2.0f;
+    private bool _isRewindTime = false;
+    private float _saturation = 1f;
+    private float _speedRatio = 5.0f;
 
     public override void Awake()
     {
@@ -37,12 +37,13 @@ public class GrayScaleImageEffect : BaseImageEffect
     public override void InitPropertyIDs()
     {
         _saturationID = Shader.PropertyToID(_saturationPropertyName);
+        UpdateSaturation();
     }
 
 
     private void Update()
     {
-        if (_reverseTime)
+        if (_isRewindTime)
         {
             _saturation -= Time.deltaTime * _speedRatio;
         }
