@@ -19,10 +19,10 @@ public class ColorAction : BaseAction
         _preColor = _material.color;
         _material.color = _color;
 
-        TimelineManager.Instance.AddReverseAction(ReverseAction);
+        TimeMachineManager.Instance.AddRewindAction(RewindAction);
     }
 
-    public override void ReverseAction()
+    public override void RewindAction()
     {
         _material.color = _preColor;
     }

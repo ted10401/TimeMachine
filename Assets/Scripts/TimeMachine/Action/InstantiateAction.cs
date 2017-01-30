@@ -17,9 +17,9 @@ public class InstantiateAction : BaseAction
     public override void Action()
     {
         GameObject cacheObj = null;
-        LineMovementTimeline cacheTimeline = null;
-        LineMovementTimeline thisTimeline = null;
-        thisTimeline = GetComponent<LineMovementTimeline>();
+        LineMovementTimeMachine cacheTimeline = null;
+        LineMovementTimeMachine thisTimeline = null;
+        thisTimeline = GetComponent<LineMovementTimeMachine>();
 
         for (int count = 0; count < _instantiateNumber; count++)
         {
@@ -27,7 +27,7 @@ public class InstantiateAction : BaseAction
             cacheObj.transform.SetParent(transform.parent);
             cacheObj.transform.position = GetRandomPosition(transform.position);
 
-            cacheTimeline = cacheObj.GetComponent<LineMovementTimeline>();
+            cacheTimeline = cacheObj.GetComponent<LineMovementTimeMachine>();
 
             if (null != cacheTimeline && null != thisTimeline)
             {
@@ -38,10 +38,10 @@ public class InstantiateAction : BaseAction
             _instances.Add(cacheObj);
         }
 
-        TimelineManager.Instance.AddReverseAction(ReverseAction);
+        TimeMachineManager.Instance.AddRewindAction(RewindAction);
     }
 
-    public override void ReverseAction()
+    public override void RewindAction()
     {
         foreach (GameObject go in _instances)
         {

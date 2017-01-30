@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class LineMovementTimeline : BaseTimeline
+public class LineMovementTimeMachine : BaseTimeMachine
 {
     public Vector3 Direction
     {
@@ -18,7 +18,7 @@ public class LineMovementTimeline : BaseTimeline
     [SerializeField] private Vector3 _direction;
     [SerializeField] private float _speed;
 
-    public override void AddTime(float deltaTime)
+    public override void UpdateTime(float deltaTime)
     {
         if (_local)
         {

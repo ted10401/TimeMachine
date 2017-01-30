@@ -15,14 +15,14 @@ public class InvisibleAction : BaseAction
             return;
 
         _renderer.enabled = false;
-        TimelineManager.Instance.UnregisterTimeline(GetComponent<ITimeline>());
 
-        TimelineManager.Instance.AddReverseAction(ReverseAction);
+        TimeMachineManager.Instance.UnregistertimeMachine(GetComponent<ITimeMachine>());
+        TimeMachineManager.Instance.AddRewindAction(RewindAction);
     }
 
-    public override void ReverseAction()
+    public override void RewindAction()
     {
         _renderer.enabled = true;
-        TimelineManager.Instance.RegisterTimeline(GetComponent<ITimeline>());
+        TimeMachineManager.Instance.RegistertimeMachine(GetComponent<ITimeMachine>());
     }
 }

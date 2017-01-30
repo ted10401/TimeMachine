@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleSystemTimeline : BaseTimeline
+public class ParticleSystemTimeMachine : BaseTimeMachine
 {
     private ParticleSystem _particleSystem;
     private float _time;
@@ -14,10 +14,10 @@ public class ParticleSystemTimeline : BaseTimeline
     }
 
 
-    public override void AddTime(float deltaTime)
+    public override void UpdateTime(float deltaTime)
     {
         _time += deltaTime;
 
-        _particleSystem.Simulate(_time);
+        _particleSystem.Simulate(_time, true, true);
     }
 }
