@@ -8,7 +8,7 @@ public class InstantiateAction : BaseAction
 
     private List<GameObject> _instances;
 
-    public override void Initialize()
+    protected override void Initialize()
     {
         _instances = new List<GameObject>();
     }

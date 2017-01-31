@@ -4,7 +4,7 @@ public class InvisibleAction : BaseAction
 {
     private Renderer _renderer;
 
-    public override void Initialize()
+    protected override void Initialize()
     {
         _renderer = GetComponent<Renderer>();
     }

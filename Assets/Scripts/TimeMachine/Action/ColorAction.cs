@@ -6,7 +6,7 @@ public class ColorAction : BaseAction
     private Color _preColor;
     private Material _material;
 
-    public override void Initialize()
+    protected override void Initialize()
     {
         _material = GetComponent<Renderer>().sharedMaterial;
     }
